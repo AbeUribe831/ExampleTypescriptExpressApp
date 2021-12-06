@@ -2,7 +2,6 @@ import * as chai from "chai";
 import { getAllComments, getSingleComment } from "../controllers";
 import { testComments } from "./testData";
 import mockReqRes, { mockRequest, mockResponse } from "mock-req-res";
-
 import nock from "nock";
 import sinon from "sinon";
 
@@ -40,17 +39,17 @@ describe("Get single comment and all comments from controllers", () => {
     chai.assert.isFalse(res.status.called);
     chai.assert.isTrue(next.called);
   });
+  // used reqWithId:all
   it("request for get single comment works", async () => {
     goodRequest();
-    const reqWithId: any = mockRequest({ params: { id: "1" } });
-
+    const reqWithId = mockRequest({ params: { id: "1" } });
     await getSingleComment(reqWithId, res, next);
     chai.assert.isTrue(res.status.called);
     chai.assert.isFalse(next.called);
   });
   it("request for get comment controllers", async () => {
     goodRequest();
-    const reqWithId: any = mockRequest({ params: { id: "1200" } });
+    const reqWithId = mockRequest({ params: { id: "1200" } });
 
     await getSingleComment(reqWithId, res, next);
     chai.assert.isFalse(res.status.called);

@@ -1,10 +1,11 @@
 import { NextFunction, Request, Response } from "express";
 import { getAllData, getSingleData } from "./services";
 
+/*
 interface pathParams {
   id: string;
 }
-
+*/
 export const getAllComments = async (
   _req: Request,
   res: Response,
@@ -18,8 +19,9 @@ export const getAllComments = async (
   }
 };
 
+// do I need Request<pathParams>?
 export const getSingleComment = async (
-  req: Request<pathParams>,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {
