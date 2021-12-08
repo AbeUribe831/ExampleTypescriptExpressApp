@@ -14,7 +14,7 @@ const env = process.env.NODE_ENV || "development";
 //const config = require(__dirname + '/../config/config.json')[env];
 import * as foo from "../config/config.json";
 
-const config = (<any>foo)[env];
+const config = (<Env>foo)[env];
 // this instance is a reference to the db connections
 /*const sequelize = config.url
 	? new Sequelize(config.url, config)
