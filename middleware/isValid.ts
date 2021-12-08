@@ -32,3 +32,14 @@ export const isValidBody = (schema: Schema) => {
   };
   return middleware;
 };
+export const isValidNumericId = (schema: Schema) => {
+  const middleware = (req: Request, _res: Response, next: NextFunction) => {
+    try {
+      validate(parseInt(req.params.id), schema, { throwError: true });
+      next();
+    } catch (e) {
+      next(e);
+    }
+  };
+  return middleware;
+};

@@ -16,5 +16,9 @@ export const postBodySchema: Schema = {
       type: "string",
     },
   },
-  required: ["post_id", "name", "email", "body"],
+  required: ["post_id", "email", "body"],
+};
+
+export const paramIdSchema: Schema = {
+  type: "number",
 };
