@@ -1,5 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm test
+# lint first to test any quick quality code checks before runing actual test that could be costly
 npx lint-staged
+#npm test
